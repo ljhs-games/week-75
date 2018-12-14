@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/main-font/Big.tres" type="DynamicFont" id=1]
+[ext_resource path="res://nodes/travel-button/TravelButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://nodes/quit-button/QuitButton.tscn" type="PackedScene" id=3]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 620.0
+margin_bottom = 620.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Rect" ]
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 612.0
+margin_bottom = 152.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Example"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "Theme", "custom_fonts" ]
+
+[node name="TravelButton" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 2 )]
+
+margin_top = 156.0
+margin_right = 612.0
+margin_bottom = 308.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Play"
+_sections_unfolded = [ "Size Flags", "Theme", "custom_fonts" ]
+target_scene = "res://scenes/Game.tscn"
+
+[node name="TravelButton2" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
+
+margin_top = 312.0
+margin_right = 612.0
+margin_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Credits"
+_sections_unfolded = [ "Size Flags", "Theme", "custom_fonts" ]
+target_scene = "res://scenes/Credits.tscn"
+
+[node name="QuitButton" parent="CanvasLayer/MarginContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
+
+margin_top = 468.0
+margin_right = 612.0
+margin_bottom = 620.0
+
+
