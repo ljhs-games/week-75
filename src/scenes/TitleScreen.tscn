@@ -4,7 +4,7 @@
 [ext_resource path="res://nodes/travel-button/TravelButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/quit-button/QuitButton.tscn" type="PackedScene" id=3]
 
-[node name="TitleScreen" type="Node2D" index="0"]
+[node name="TitleScreen" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
