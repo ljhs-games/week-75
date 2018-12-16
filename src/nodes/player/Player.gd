@@ -1,20 +1,34 @@
 extends RigidBody2D
 
 signal done_turning
+signal health_changed(new_health)
 
 const accel = 1400
 const turn_speed = 90
+const health_per_sec = 20
 const negatives = ["g_left", "g_up"]
 
 var cur_directions = { "g_right": 0, "g_left": 0, "g_up": 0, "g_down": 0 }
 var directional = Vector2()
 var target_angle = 0.0 # in radians
 var turning = false
-var health = 100.0
+var health = 40.0 setget _set_health
+
+func _set_health(new_health):
+	health = new_health
+	emit_signal("health_changed", new_health)
 
 func _ready():
+	set_process(true)
 	set_process_input(true)
 	set_physics_process(true)
+
+func _process(delta):
+	if health < 100.0:
+		self.health += health_per_sec*delta
+	
+	else:
+		self.health = 100.0
 
 func _input(event):
 	for cur_action_str in cur_directions.keys():
@@ -44,7 +58,7 @@ func shoot_gravity(target_point):
 	print("shooting gravity")
 
 func hit(damage, knockback_direction, knockback_magnitude):
-	health -= damage
+	self.health -= damage
 	if health <= 0:
 		GameState.dead = true
 		return
