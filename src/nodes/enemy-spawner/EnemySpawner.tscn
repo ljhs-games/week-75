@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://nodes/enemy-spawner/EnemySpawner.gd" type="Script" id=1]
+
+[node name="EnemySpawner" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+spawn_pack = null
+respawn_time_range = Vector2( 0.2, 1 )
+spawn_padding = 50.0
+player_path = null
+
+[node name="SpawnTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+
+
