@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://nodes/lightning/Lightning.gd" type="Script" id=1]
+[ext_resource path="res://nodes/lightning/Lightning_Bolt.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40, 10 )
+
+[node name="Lightning" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+rotation = 0.575959
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 2.95579, -0.257025 )
+shape = SubResource( 1 )
+
+[node name="MoveTween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_Lightning_area_entered"]
+
+[connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]
+
+
