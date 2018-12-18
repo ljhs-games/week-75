@@ -4,6 +4,7 @@ signal done_turning
 signal health_changed(new_health)
 
 const accel = 1400
+const lightning_pack = preload("res://nodes/lightning/Lightning.tscn")
 const loop_padding = 50 # so that when player loops around screen doesn't teleport
 const turn_speed = 90
 const health_per_sec = 20
@@ -56,7 +57,9 @@ func _input(event):
 
 func shoot_lightning(target_point):
 	yield(self, "done_turning")
-	print("shooting lightning")
+	var cur_lightning = lightning_pack.instance()
+	get_parent().add_child(cur_lightning)
+	cur_lightning.fire(global_position, target_point)
 
 func shoot_gravity(target_point):
 	yield(self, "done_turning")
