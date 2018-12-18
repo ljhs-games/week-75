@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://nodes/escape-listener/EscapeListener.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://nodes/sound-toggle/SoundToggle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://nodes/player-health-bar/PlayerHealthBar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://nodes/arrow/Arrow.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node2D" index="0"]
 
@@ -61,5 +62,9 @@ player_path = NodePath("../../Player")
 
 position = Vector2( 350, 350 )
 _sections_unfolded = [ "Angular", "Linear", "Transform" ]
+
+[node name="Arrow" parent="." index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 15.7824, 14.3682 )
 
 
