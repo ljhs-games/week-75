@@ -4,6 +4,7 @@ signal done_turning
 signal health_changed(new_health)
 
 const accel = 1400
+const loop_padding = 50 # so that when player loops around screen doesn't teleport
 const turn_speed = 90
 const health_per_sec = 20
 const negatives = ["g_left", "g_up"]
@@ -14,6 +15,8 @@ var target_angle = 0.0 # in radians
 var turning = false
 var health = 40.0 setget _set_health
 
+var display_size
+
 func _set_health(new_health):
 	health = new_health
 	emit_signal("health_changed", new_health)
@@ -22,6 +25,8 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	set_physics_process(true)
+	display_size = Vector2(ProjectSettings.get_setting("display/window/size/width"),ProjectSettings.get_setting("display/window/size/height"))
+	assert display_size != null
 
 func _process(delta):
 	if health < 100.0:
@@ -64,7 +69,8 @@ func hit(damage, knockback_direction, knockback_magnitude):
 		return
 	apply_impulse(Vector2(), knockback_direction*knockback_magnitude)
 
-func _physics_process(delta):
+
+func _integrate_forces(state):
 	applied_force = directional*accel
 	if turning:
 		angular_damp = -1
@@ -76,6 +82,17 @@ func _physics_process(delta):
 	else:
 		angular_damp = 20.0
 		applied_torque = 0.0
+	# keep in bounds
+	var xform = state.transform
+	if xform.origin.x > display_size.x + loop_padding:
+		xform.origin.x = -loop_padding
+	if xform.origin.x < 0 - loop_padding:
+		xform.origin.x = display_size.x + loop_padding
+	if xform.origin.y > display_size.y + loop_padding:
+		xform.origin.y = -loop_padding
+	if xform.origin.y < 0 - loop_padding:
+		xform.origin.y = display_size.y + loop_padding
+	state.set_transform(xform)
 
 func angle_difference(a1, a2):
 	var to_return = a2 - a1

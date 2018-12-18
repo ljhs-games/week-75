@@ -5,7 +5,7 @@
 [ext_resource path="res://nodes/travel-button/TravelButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/main-font/Big.tres" type="DynamicFont" id=4]
 
-[node name="Credits" type="Node2D"]
+[node name="Credits" type="Node2D" index="0"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
