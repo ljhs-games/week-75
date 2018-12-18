@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/suspense-music.ogg-eecec10a46d36aa15a2904220102dd69.oggstr"
+
+[deps]
+
+source_file="res://nodes/background-music-player/suspense-music.ogg"
+dest_files=[ "res://.import/suspense-music.ogg-eecec10a46d36aa15a2904220102dd69.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
