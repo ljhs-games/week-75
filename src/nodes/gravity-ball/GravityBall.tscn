@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://nodes/gravity-ball/GravityBall.gd" type="Script" id=1]
 [ext_resource path="res://nodes/gravity-ball/Gravity_Ball.png" type="Texture" id=2]
@@ -6,14 +6,27 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 140.0
+radius = 238.874
+
+[sub_resource type="Curve" id=3]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, -200 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=2]
 
 render_priority = 0
 trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 128.0
+emission_shape = 2
+emission_box_extents = Vector3( 200, 200, 1 )
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
@@ -24,12 +37,13 @@ initial_velocity = 1.0
 initial_velocity_random = 0.0
 angular_velocity = 0.0
 angular_velocity_random = 0.0
-orbit_velocity = 0.2
+orbit_velocity = 0.1
 orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
 radial_accel = -100.0
 radial_accel_random = 0.0
+radial_accel_curve = SubResource( 4 )
 tangential_accel = 0.0
 tangential_accel_random = 0.0
 damping = 0.0
@@ -46,7 +60,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Emission Shape", "Gravity", "Orbit Velocity", "Radial Accel", "Spread" ]
+_sections_unfolded = [ "Emission Shape", "Flags", "Gravity", "Orbit Velocity", "Radial Accel", "Spread" ]
 
 [node name="GravityBall" type="Area2D"]
 
@@ -75,7 +89,7 @@ shape = SubResource( 1 )
 
 emitting = false
 amount = 400
-lifetime = 1.0
+lifetime = 0.5
 one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
@@ -91,7 +105,7 @@ texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Textures" ]
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
 
 [node name="MoveTween" type="Tween" parent="." index="3"]
 
@@ -105,7 +119,7 @@ playback/speed = 1.0
 [node name="EffectTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 6.0
 one_shot = true
 autostart = false
 

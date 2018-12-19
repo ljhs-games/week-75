@@ -94,7 +94,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="Player" type="RigidBody2D" groups=[
+[node name="Player" type="RigidBody2D" index="0" groups=[
 "player",
 ]]
 
@@ -133,7 +133,7 @@ shape = SubResource( 1 )
 [node name="GravityTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 autostart = false
 
