@@ -17,7 +17,7 @@ func _ready():
 func spawn_enemy():
 	var cur_enemy = spawn_pack.instance()
 	add_child(cur_enemy)
-	cur_enemy.global_position = Vector2(rand_range(-spawn_padding, display_size.x + spawn_padding), rand_range(-spawn_padding, display_size.y + spawn_padding))
+	cur_enemy.global_position = Vector2(-spawn_padding, rand_range(-spawn_padding, display_size.y + spawn_padding))
 	cur_enemy.player_node = player_node
 
 func reset_timer():
