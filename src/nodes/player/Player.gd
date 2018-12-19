@@ -5,6 +5,7 @@ signal health_changed(new_health)
 
 const accel = 1400
 const lightning_pack = preload("res://nodes/lightning/Lightning.tscn")
+const gravity_pack = preload("res://nodes/gravity-ball/GravityBall.tscn")
 const loop_padding = 50 # so that when player loops around screen doesn't teleport
 const turn_speed = 90
 const health_per_sec = 20
@@ -63,7 +64,10 @@ func shoot_lightning(target_point):
 
 func shoot_gravity(target_point):
 	yield(self, "done_turning")
-	print("shooting gravity")
+	var cur_gravity = gravity_pack.instance()
+	get_parent().add_child(cur_gravity)
+	cur_gravity.global_position = global_position
+	cur_gravity.launch(target_point)
 
 func hit(damage, knockback_direction, knockback_magnitude):
 	self.health -= damage
