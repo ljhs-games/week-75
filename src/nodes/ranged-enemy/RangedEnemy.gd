@@ -30,7 +30,6 @@ func _integrate_forces(state):
 	if global_position.distance_to(player_node.global_position) < min_distance:
 		if is_shooting == true:
 			$ShootTimer.start()
-			print("stopping")
 			state.linear_velocity = Vector2(nudge_velocity, 0).rotated(rotation)
 			is_shooting = false
 		applied_force = Vector2(rotate_force, 0).rotated(rotation - PI/2)
