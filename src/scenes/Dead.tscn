@@ -61,7 +61,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Example Death"
+text = "dang
+you died"
 align = 1
 autowrap = true
 percent_visible = 1.0
