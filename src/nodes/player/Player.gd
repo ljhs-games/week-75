@@ -8,7 +8,7 @@ const lightning_pack = preload("res://nodes/lightning/Lightning.tscn")
 const gravity_pack = preload("res://nodes/gravity-ball/GravityBall.tscn")
 const loop_padding = 50 # so that when player loops around screen doesn't teleport
 const turn_speed = 90
-const health_per_sec = 20
+const health_per_sec = 10
 const negatives = ["g_left", "g_up"]
 
 var cur_directions = { "g_right": 0, "g_left": 0, "g_up": 0, "g_down": 0 }
@@ -100,6 +100,9 @@ func _integrate_forces(state):
 	if xform.origin.y < 0 - loop_padding:
 		xform.origin.y = display_size.y + loop_padding
 	state.set_transform(xform)
+
+func shock():
+	$ShockPlayer.play("shock")
 
 func angle_difference(a1, a2):
 	var to_return = a2 - a1

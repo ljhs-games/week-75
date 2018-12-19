@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://nodes/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://nodes/player/Wizard.png" type="Texture" id=2]
 [ext_resource path="res://nodes/player/ProgressBar.gd" type="Script" id=3]
+[ext_resource path="res://nodes/shock-player/ShockPlayer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -203,5 +204,7 @@ percent_visible = false
 script = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Rect", "custom_styles" ]
 timer_path = NodePath("../GravityTimer")
+
+[node name="ShockPlayer" parent="." index="6" instance=ExtResource( 4 )]
 
 
