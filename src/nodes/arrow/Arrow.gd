@@ -6,7 +6,7 @@ const damage = 20.0
 const knockback = 600.0
 
 func _ready():
-	set_process(true)
+	set_process(false)
 
 func _process(delta):
 	global_position += Vector2(move_velocity*delta, 0).rotated(rotation)
