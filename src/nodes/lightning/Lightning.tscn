@@ -8,7 +8,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 40, 10 )
 
-[node name="Lightning" type="Area2D"]
+[node name="Lightning" type="Area2D" groups=[
+"lightning",
+]]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

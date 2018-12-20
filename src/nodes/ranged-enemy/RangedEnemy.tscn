@@ -2,7 +2,6 @@
 
 [ext_resource path="res://nodes/ranged-enemy/RangedEnemy.gd" type="Script" id=1]
 [ext_resource path="res://nodes/ranged-enemy/Ranged_Enemy.png" type="Texture" id=2]
-[ext_resource path="res://nodes/shock-player/ShockPlayer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -42,7 +41,27 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="RangedEnemy" type="RigidBody2D"]
+[sub_resource type="Animation" id=8]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.96875, 1, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="RangedEnemy" type="RigidBody2D" groups=[
+"enemy",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -64,18 +83,18 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -20, 0 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0.5 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
-position = Vector2( -20, 0 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="ShootTimer" type="Timer" parent="." index="2"]
 
@@ -84,9 +103,17 @@ wait_time = 1.5
 one_shot = false
 autostart = false
 
-[node name="ShockPlayer" parent="." index="3" instance=ExtResource( 3 )]
+[node name="ShockPlayer" type="AnimationPlayer" parent="." index="3"]
 
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
 anims/die = SubResource( 2 )
+anims/shock = SubResource( 8 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 
