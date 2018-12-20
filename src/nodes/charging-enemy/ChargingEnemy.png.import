@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ChargingEnemy.png-82abaf06bdeca38729702e0344882d5a.stex"
+path="res://.import/ChargingEnemy.png-45f45c3f6f6a8ebaf5cc27a5c3a44f8f.stex"
 
 [deps]
 
-source_file="res://nodes/ChargingEnemy.png"
-dest_files=[ "res://.import/ChargingEnemy.png-82abaf06bdeca38729702e0344882d5a.stex" ]
+source_file="res://nodes/charging-enemy/ChargingEnemy.png"
+dest_files=[ "res://.import/ChargingEnemy.png-45f45c3f6f6a8ebaf5cc27a5c3a44f8f.stex" ]
 
 [params]
 

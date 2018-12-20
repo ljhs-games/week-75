@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://nodes/escape-listener/EscapeListener.tscn" type="PackedScene" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://nodes/puddle-generator/PuddleGenerator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://nodes/enemy-spawner/EnemySpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://nodes/ranged-enemy/RangedEnemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://nodes/charging-enemy/ChargingEnemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node2D" index="0"]
 
@@ -64,13 +65,19 @@ player_path = NodePath("../../Player")
 
 [node name="Enemies" type="Node2D" parent="." index="2"]
 
-[node name="EnemySpawner" parent="Enemies" index="0" instance=ExtResource( 8 )]
+[node name="RangedEnemySpawner" parent="Enemies" index="0" instance=ExtResource( 8 )]
 
 spawn_pack = ExtResource( 9 )
 respawn_time_range = Vector2( 1, 3 )
 player_path = NodePath("../../Player")
 
-[node name="Player" parent="." index="3" instance=ExtResource( 10 )]
+[node name="ChargingEnemySpawener" parent="Enemies" index="1" instance=ExtResource( 8 )]
+
+spawn_pack = ExtResource( 10 )
+respawn_time_range = Vector2( 1, 2 )
+player_path = NodePath("../../Player")
+
+[node name="Player" parent="." index="3" instance=ExtResource( 11 )]
 
 position = Vector2( 350, 350 )
 _sections_unfolded = [ "Angular", "Linear", "Transform" ]
