@@ -99,7 +99,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 [node name="ShootTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 1.5
+wait_time = 0.5
 one_shot = false
 autostart = false
 

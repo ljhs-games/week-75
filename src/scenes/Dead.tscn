@@ -53,7 +53,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 692.0
-margin_bottom = 172.0
+margin_bottom = 222.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -61,7 +61,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "dang
+text = "son of a gun
 you died"
 align = 1
 autowrap = true
@@ -72,9 +72,9 @@ _sections_unfolded = [ "Size Flags", "Theme", "custom_fonts" ]
 
 [node name="TravelButton" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 2 )]
 
-margin_top = 176.0
+margin_top = 226.0
 margin_right = 692.0
-margin_bottom = 348.0
+margin_bottom = 381.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -84,9 +84,9 @@ target_scene = "res://scenes/Game.tscn"
 
 [node name="TravelButton2" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
 
-margin_top = 352.0
+margin_top = 385.0
 margin_right = 692.0
-margin_bottom = 524.0
+margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -96,7 +96,7 @@ target_scene = "res://scenes/Credits.tscn"
 
 [node name="QuitButton" parent="CanvasLayer/MarginContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
 
-margin_top = 528.0
+margin_top = 544.0
 margin_right = 692.0
 margin_bottom = 700.0
 

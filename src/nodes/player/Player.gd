@@ -3,7 +3,7 @@ extends RigidBody2D
 signal done_turning
 signal health_changed(new_health)
 
-const accel = 1400
+const accel = 1800
 const lightning_pack = preload("res://nodes/lightning/Lightning.tscn")
 const gravity_pack = preload("res://nodes/gravity-ball/GravityBall.tscn")
 const loop_padding = 50 # so that when player loops around screen doesn't teleport

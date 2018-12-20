@@ -37,7 +37,6 @@ func random_shape():
 func shock_everybody():
 	anim_sprite.play("light_up")
 	for b in get_overlapping_bodies():
-		print(b)
 		if b.is_in_group("enemy") or b.is_in_group("player"):
 			b.shock()
 
