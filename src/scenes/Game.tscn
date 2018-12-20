@@ -6,7 +6,7 @@
 [ext_resource path="res://nodes/time-counter/TimeCounter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nodes/sound-toggle/SoundToggle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://nodes/player-health-bar/PlayerHealthBar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://nodes/puddle/Puddle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://nodes/puddle-generator/PuddleGenerator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://nodes/enemy-spawner/EnemySpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://nodes/ranged-enemy/RangedEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=10]
@@ -60,9 +60,7 @@ margin_right = 244.0
 margin_bottom = 66.0
 player_path = NodePath("../../Player")
 
-[node name="Puddle" parent="." index="1" instance=ExtResource( 7 )]
-
-position = Vector2( 500, 200 )
+[node name="PuddleGenerator" parent="." index="1" instance=ExtResource( 7 )]
 
 [node name="Enemies" type="Node2D" parent="." index="2"]
 
